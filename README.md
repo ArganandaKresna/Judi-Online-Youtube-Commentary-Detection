@@ -44,6 +44,6 @@ This project contains a Jupyter Notebook to train a Spam Classification model (I
 
 ## Files
 
-- `Project_UAS_NLP.ipynb`: The main notebook containing all steps.
+- `IndoBert_Train_Model_Judol.ipynb`: The main notebook containing all steps.
 - `labeled_kandidat_spam.csv`: The labeled dataset.
 - `requirements.txt`: List of python dependencies (optional, as the notebook installs them).
