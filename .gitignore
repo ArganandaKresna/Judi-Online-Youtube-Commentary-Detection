@@ -1,0 +1,5 @@
+indobert-spam-detection-final/
+results/
+*.zip
+train_spam_model.py
+.DS_Store
