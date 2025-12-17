@@ -2,6 +2,52 @@
 
 This document records the end-to-end journey of training a Spam Classification model using the `labeled_kandidat_spam.csv` dataset, aiming for >85% accuracy.
 
+## Workflow Visualization
+
+```mermaid
+graph TD
+    %% Global Styles
+    classDef phaselabel fill:#f9f,stroke:#333,stroke-width:2px;
+
+    subgraph "Phase 0: Data Collection"
+        Start([Start]) --> API["Pull Data (YouTube API)"]
+        API --> Compile["Compile Dataset .csv"]
+        Compile --> Label["Manual Labeling (Spam/Aman)"]
+    end
+
+    subgraph "Phase 1: Initialization"
+        Label --> Install[Install Libraries]
+        Install --> Load[Load Dataset .csv]
+        Load --> Split["Split 80/20 (Stratified)"]
+    end
+
+    subgraph "Phase 2: Preparation"
+        Split --> Tokenize[Tokenize with IndoBERT]
+        Tokenize --> MapData[Map to Torch Dataset]
+    end
+
+    subgraph "Phase 3: Training (Execution)"
+        MapData --> InitModel[Load Pretrained IndoBERT]
+        InitModel --> Config["Set Config: 15 Epochs, 3e-5 LR"]
+        Config --> TrainProcess[Run Trainer Loop]
+    end
+
+    subgraph "Phase 4: Evaluation & Logic"
+        TrainProcess --> Eval["Calc Metrics (Acc, F1)"]
+        Eval --> Decision{"Accuracy > 85%?"}
+        Decision -- No --> Tune[Re-tune / More Epochs]
+        Tune -.-> Config
+    end
+
+    subgraph "Phase 5: Deployment & Visualization"
+        Decision -- Yes --> Save[Save Model & Tokenizer]
+        Save --> VizCM[Gen Confusion Matrix]
+        Save --> Viz3D[Gen 3D Embeddings]
+        VizCM & Viz3D --> Demo[Run Inference Demo]
+        Demo --> End(["End Project"])
+    end
+```
+
 ## 1. Initial Assessment
 
 - **Goal**: Train a model to classify text as "Spam" (1) or "Aman" (0).
