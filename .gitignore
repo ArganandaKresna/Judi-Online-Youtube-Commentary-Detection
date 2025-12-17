@@ -1,5 +1,6 @@
 indobert-spam-detection-final/
-results/
 *.zip
 train_spam_model.py
 .DS_Store
+evaluation_results/
+.gitignore
