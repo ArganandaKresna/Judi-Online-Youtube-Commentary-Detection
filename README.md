@@ -28,9 +28,9 @@ This project contains a Jupyter Notebook to train a Spam Classification model (I
     jupyter notebook
     ```
 
-    Or open the project folder in VS Code and open `Project_UAS_NLP.ipynb`.
+    Or open the project folder in VS Code and open `IndoBert_Train_Model_Judol.ipynb`.
 
-2.  Open **`Project_UAS_NLP.ipynb`**.
+2.  Open **`IndoBert_Train_Model_Judol.ipynb`**.
 
 3.  Run the cells sequentially (Shift + Enter).
 
